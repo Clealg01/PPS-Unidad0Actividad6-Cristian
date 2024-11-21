@@ -39,9 +39,9 @@ docker run hello-world
    ```
 
 Este comando lo que hacer es correr un contenedor con el script llamado `hello-world`, que lo que hace es imprimir este mensaje:
-
-<img src="./images/run_hello_world.png" alt="lanzar script hello-world">
-</p>
+<p align="center">
+    <img src="./images/run_hello_world.png" alt="lanzar script hello-world">
+    </p>
 <p align="center"><em>lanzar script hello-world</em></p>
 
 Al ser la primera vez que ejecuto un contenedor basado en esa imagen, la imagen hello-word se descarga desde el repositorio que se encuentra en el registro que vayamos a utilizar, en nuestro caso DockerHub.
@@ -51,7 +51,7 @@ A continuación, listamos los contenedores que se están ejecutando:
 docker ps
    ```
 
-<img src="./images/primer_docker_ps.png" alt="listar contenedores en ejecución">
+<img src="./images/Primer_docker_ps.png" alt="listar contenedores en ejecución">
 </p>
 <p align="center"><em>listar contenedores en ejecución</em></p>
 
@@ -60,7 +60,7 @@ Como podemos comprobar, este contenedor no se está ejecutando. Esto es porque u
 docker ps -a
    ```
 
-<img src="./images/primer_docker_ps_-a.png" alt="listar contenedores que no están en ejecución">
+<img src="./images/Primer_docker_ps_-a.png" alt="listar contenedores que no están en ejecución">
 </p>
 <p align="center"><em>listar contenedores que no están en ejecución</em></p>
 
@@ -144,6 +144,7 @@ Si deseamos volver a conectarnos a este contenedor después de haber salido, pri
 <p align="center"><em>Iniciar y conectarse a contenedor</em></p>
 
 Si el contenedor está en ejecución, también podemos ejecutar comandos directamente sin necesidad de acceder al contenedor utilizando el subcomando ``exec``, pero solo se ejecutaría el comando de la linea escrita. Por ejemplo, si queremos listar los archivos dentro del contenedor, podemos hacerlo de esta manera:
+
 <img src="./images/comando_exec.png" alt="Comando exec">
 </p>
 <p align="center"><em>Comando exec</em></p>
