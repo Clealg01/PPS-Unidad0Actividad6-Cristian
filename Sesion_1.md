@@ -15,6 +15,7 @@ En esta práctica, nos centraremos en comprender el concepto de contenedores y c
   - [Creando un contenedor demonio](#creando-un-contenedor-demonio)
   - [Creando un contenedor con un servidor web](#creando-un-contenedor-con-un-servidor-web)
   - [Configuración de contenedores con variables de entorno](#configuración-de-contenedores-con-variables-de-entorno)
+  - [Ejercicios](#ejercicios)
 
 ## Instalación de docker
 Para instalar Docker en Kali, debe recordar que ya hay un paquete llamado `docker`, por lo tanto, Docker debe instalarse con un nombre diferente. Si instala docker, no terminará con la versión del contenedor. La versión que instalaremos se llama `docker.io`. Sin embargo, todos los comandos son iguales, por lo que ejecutar docker en la línea de comandos será el comando apropiado:
@@ -330,3 +331,5 @@ Si queremos acceder a la base de datos desde fuera del contenedor, es necesario 
 <p align="center"><em>Mapeo de puertos de MariaDB</em></p>
 
 El mapeo de puertos asegura que podamos conectarnos al servidor MariaDB desde el exterior, usando un cliente de MariaDB instalado en nuestra máquina anfitriona. Por ejemplo, para conectarnos desde el equipo anfitrión, usamos la IP de la máquina Docker y el cliente de MariaDB. También podemos conectarnos usando la dirección ``127.0.0.1`` si estamos trabajando localmente.
+
+## Ejercicios
