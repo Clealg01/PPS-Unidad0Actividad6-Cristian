@@ -51,7 +51,8 @@ A continuación, listamos los contenedores que se están ejecutando:
 docker ps
    ```
 
-<img src="./images/Primer_docker_ps.png" alt="listar contenedores en ejecución">
+<p align="center">
+    <img src="./images/Primer_docker_ps.png" alt="listar contenedores en ejecución">
 </p>
 <p align="center"><em>listar contenedores en ejecución</em></p>
 
@@ -60,7 +61,8 @@ Como podemos comprobar, este contenedor no se está ejecutando. Esto es porque u
 docker ps -a
    ```
 
-<img src="./images/Primer_docker_ps_-a.png" alt="listar contenedores que no están en ejecución">
+<p align="center">
+    <img src="./images/Primer_docker_ps_-a.png" alt="listar contenedores que no están en ejecución">
 </p>
 <p align="center"><em>listar contenedores que no están en ejecución</em></p>
 
@@ -69,8 +71,8 @@ Para eliminar el contenedor podemos identificarlo con su id o por su nombre:
 docker rm 231c27b7f265
 docker rm youthful_khorana
    ```
-
-<img src="./images/Eliminar_contenedor.png" alt="Eliminar contenedor">
+<p align="center">
+    <img src="./images/Eliminar_contenedor.png" alt="Eliminar contenedor">
 </p>
 <p align="center"><em>Eliminar contenedor</em></p>
 
@@ -90,8 +92,8 @@ latest: Pulling from library/ubuntu
 Status: Downloaded newer image for ubuntu:latest
 Hello world
    ```
-
-<img src="./images/docker_run_echo_hello-world.png" alt="Ejecutar docker run y comando echo">
+<p align="center">
+    <img src="./images/docker_run_echo_hello-world.png" alt="Ejecutar docker run y comando echo">
 </p>
 <p align="center"><em>Ejecutar docker run y comando echo</em></p>
 
@@ -99,7 +101,8 @@ Una vez que la imagen se ha descargado y el comando echo 'Hello world' se ejecut
 
 Podemos verificar el estado del contenedor utilizando el comando `docker ps -a`, que vimos anteriormente: 
 
-<img src="./images/docker_ps_-a_echo_hello-world.png" alt="Comprobación del contenedor creado con el comando echo">
+<p align="center">
+    <img src="./images/docker_ps_-a_echo_hello-world.png" alt="Comprobación del contenedor creado con el comando echo">
 </p>
 <p align="center"><em>Comprobación del contenedor creado con el comando echo</em></p>
 
@@ -107,7 +110,8 @@ Aquí podemos ver que el contenedor basado en la imagen ubuntu ejecutó el coman
 
 A continuación, podemos listar todas las imágenes que hemos descargado en nuestro registro local con el comando `docker images`. Este comando nos muestra información sobre las imágenes disponibles, incluyendo el repositorio, la etiqueta (tag), el ID de la imagen, la fecha de creación y el tamaño de la imagen. Al ejecutar el comando, obtenemos una salida como esta:
 
-<img src="./images/docker_images.png" alt="Comprobación del contenedor creado con el comando echo">
+<p align="center">
+    <img src="./images/docker_images.png" alt="Comprobación del contenedor creado con el comando echo">
 </p>
 <p align="center"><em>Ejecución comando docker images</em></p>
 
@@ -126,7 +130,8 @@ Al ejecutar este comando, se nos presenta un prompt de Bash dentro del contenedo
 root@2bfa404bace0:/#
    ```
 
-<img src="./images/Ejecutar_contenedor_interactivo.png" alt="Ejecutar contenedor interactivo">
+<p align="center">
+    <img src="./images/Ejecutar_contenedor_interactivo.png" alt="Ejecutar contenedor interactivo">
 </p>
 <p align="center"><em>Ejecutar contenedor interactivo</em></p>
 
@@ -139,18 +144,22 @@ docker run -it --name contenedor1 ubuntu
    ```
 
 Si deseamos volver a conectarnos a este contenedor después de haber salido, primero debemos iniciarlo con el comando ``docker start``, seguido de ``docker attach`` para volver a interactuar con él:
-<img src="./images/Conectar_contenedor.png" alt="iniciar y conectarse a contenedor">
+
+<p align="center">
+    <img src="./images/Conectar_contenedor.png" alt="iniciar y conectarse a contenedor">
 </p>
 <p align="center"><em>Iniciar y conectarse a contenedor</em></p>
 
 Si el contenedor está en ejecución, también podemos ejecutar comandos directamente sin necesidad de acceder al contenedor utilizando el subcomando ``exec``, pero solo se ejecutaría el comando de la linea escrita. Por ejemplo, si queremos listar los archivos dentro del contenedor, podemos hacerlo de esta manera:
 
-<img src="./images/comando_exec.png" alt="Comando exec">
+<p align="center">
+    <img src="./images/comando_exec.png" alt="Comando exec">
 </p>
 <p align="center"><em>Comando exec</em></p>
 
 Con el comando ``docker restart``, podemos reiniciar el contenedor rápidamente. Esto implica detenerlo y luego iniciarlo de nuevo en un solo paso. Para obtener información detallada sobre un contenedor, usamos el comando ``docker inspect``, que nos devuelve una salida en formato JSON. Este formato contiene información útil, como:
-<img src="./images/docker_inspect.png" alt="Comando inspect">
+<p align="center">
+    <img src="./images/docker_inspect.png" alt="Comando inspect">
 </p>
 <p align="center"><em>Comando inspect</em></p>
 Dentro de esta información, podemos encontrar:
@@ -170,19 +179,22 @@ Ahora vamos a crear y gestionar un contenedor que se ejecute en segundo plano, t
 docker run -d --name contenedor2 ubuntu bash -c "while true; do echo hello world; sleep 1; done"
    ```
 
-<img src="./images/Levantar_contenedor_como_demonio.png" alt="Levantar contenedor como demonio">
+<p align="center">
+    <img src="./images/Levantar_contenedor_como_demonio.png" alt="Levantar contenedor como demonio">
 </p>
 <p align="center"><em>Levantar contenedor como demonio que imprima infinitamente "hello world"</em></p>
 
 Al ejecutar este comando, Docker nos devuelve el identificador único del contenedor, lo que confirma que el contenedor se ha creado y está ejecutándose en segundo plano. La instrucción ``bash -c`` nos permite definir uno o varios comandos dentro del contenedor, en este caso un bucle infinito, que es ideal para tareas que deben ejecutarse de forma constante. Para confirmar que el contenedor se encuentra ejecutándose, podemos usar el comando docker ps, que muestra una lista de todos los contenedores activos en el sistema.
 
-<img src="./images/Comprobacion_contenedor_demonio.png" alt="Comprobación de que está activo el contenedor demonio">
+<p align="center">
+    <img src="./images/Comprobacion_contenedor_demonio.png" alt="Comprobación de que está activo el contenedor demonio">
 </p>
 <p align="center"><em>Comprobación de que está activo el contenedor demonio</em></p>
 
 Podemos inspeccionar lo que el contenedor está haciendo en tiempo real utilizando el comando docker logs. Este comando muestra la salida estándar generada por el contenedor. En este caso, verificaremos que está imprimiendo "hello world" en cada iteración del bucle:
 
-<img src="./images/Logs_contenedor2.png" alt="Logs del contenedor demonio">
+<p align="center">
+    <img src="./images/Logs_contenedor2.png" alt="Logs del contenedor demonio">
 </p>
 <p align="center"><em>Logs del contenedor demonio</em></p>
 
@@ -193,7 +205,7 @@ docker stop contenedor2
 docker rm contenedor2
    ```
 
-> **Nota**: Es importante tener en cuenta que Docker no permite eliminar un contenedor que está en ejecución. Si intentamos hacerlo, obtendremos un error. <img src="./images/Error_borrar_contenedor_activo.png" alt="Error al borrar un contenedor activo">
+> **Nota**: Es importante tener en cuenta que Docker no permite eliminar un contenedor que está en ejecución. Si intentamos hacerlo, obtendremos un error. <p align="center"><img src="./images/Error_borrar_contenedor_activo.png" alt="Error al borrar un contenedor activo">
 </p>
 
 > Por eso, es necesario detener el contenedor primero. Sin embargo, si deseamos eliminar un contenedor en ejecución directamente, podemos hacerlo utilizando la opción ``-f`` (force, para forzar la eliminación):   
@@ -216,7 +228,8 @@ El contenedor se ejecutará, y al acceder desde un navegador a la dirección IP 
 http://localhost:8080/
    ```
 
-<img src="./images/comprobacion_servidor.png" alt="Comprobación de que el servidor está levantado">
+<p align="center">
+    <img src="./images/comprobacion_servidor.png" alt="Comprobación de que el servidor está levantado">
 </p>
 <p align="center"><em>Comprobación de que el servidor está levantado</em></p>
 
@@ -229,7 +242,8 @@ docker logs -f my-apache-app
 
 Esto es útil para monitorear el tráfico o errores que el servidor Apache pueda estar generando.
 
-<img src="./images/Monitoreo_servidor.png" alt="Monitoreo del servidor">
+<p align="center">
+    <img src="./images/Monitoreo_servidor.png" alt="Monitoreo del servidor">
 </p>
 <p align="center"><em>Monitoreo del servidor</em></p>
 
@@ -243,7 +257,8 @@ Usamos el comando ``docker exec`` con las opciones ``-it`` para acceder al conte
     ```
 Una vez dentro del contenedor, navegamos al directorio donde Apache almacena sus archivos y creamos o modificamos el archivo ``index.html``:
 
-<img src="./images/Modificar_indexhtml_de_forma_interactiva.png" alt="Monitoreo del servidor">
+<p align="center">
+    <img src="./images/Modificar_indexhtml_de_forma_interactiva.png" alt="Monitoreo del servidor">
 </p>
 <p align="center"><em>Modificar index.html de forma interactiva</em></p>
 
@@ -254,7 +269,8 @@ Otra forma de modificar el archivo es ejecutando un comando directamente sin nec
     docker exec my-apache-app bash -c 'echo "<h1>Segunda modificación</h1>" > /usr/local/apache2/htdocs/index.html'
     ```
 
-<img src="./images/Modificar_indexhtml_comando_directamente.png" alt="Modificar index.html ejecutando un comando directamente sin entrar al contenedor">
+<p align="center">
+    <img src="./images/Modificar_indexhtml_comando_directamente.png" alt="Modificar index.html ejecutando un comando directamente sin entrar al contenedor">
 </p>
 <p align="center"><em>Modificar index.html ejecutando un comando directamente sin entrar al contenedor</em></p>
 
@@ -266,7 +282,8 @@ Las variables de entorno se pueden definir al crear un contenedor utilizando el 
 docker run -it --name prueba -e USUARIO=prueba ubuntu bash
    ```
 
-<img src="./images/Creacion_variable_entorno.png" alt="Creación de variable de entorno">
+<p align="center">
+    <img src="./images/Creacion_variable_entorno.png" alt="Creación de variable de entorno">
 </p>
 <p align="center"><em>Creación de variable de entorno</em></p>
 
@@ -277,7 +294,8 @@ Cuando usamos imágenes específicas como ``mariadb``, en ocasiones es obligator
 docker run -d --name some-mariadb -e MYSQL_ROOT_PASSWORD=my-secret-pw mariadb
    ```
 
-<img src="./images/Comprobar_ejecucion_MariaDB.png" alt="Verificar que el contenedor MariaDB está en ejecución">
+<p align="center">
+    <img src="./images/Comprobar_ejecucion_MariaDB.png" alt="Verificar que el contenedor MariaDB está en ejecución">
 </p>
 <p align="center"><em>Verificar que el contenedor MariaDB está en ejecución</em></p>
 
@@ -286,7 +304,8 @@ Para inspeccionar las variables de entorno configuradas dentro del contenedor, u
 docker exec -it some-mariadb env
    ```
 
-<img src="./images/Inspeccionar_variables.png" alt="Inspeccionar la variable de la contraseña en MariaDB">
+<p align="center">
+    <img src="./images/Inspeccionar_variables.png" alt="Inspeccionar la variable de la contraseña en MariaDB">
 </p>
 <p align="center"><em>Inspeccionar la variable de la contraseña en MariaDB</em></p>
 
@@ -298,13 +317,15 @@ docker exec -it some-mariadb apt update && apt install mariadb-client -y
 
 Y luego dentro de la máquina usamos el cliente de MariaDB para conectarnos a la base de datos con las credenciales definidas:
 
-<img src="./images/Entrar_MariaDB.png" alt="Inspeccionar la base de datos de MariaDB">
+<p align="center">
+    <img src="./images/Entrar_MariaDB.png" alt="Inspeccionar la base de datos de MariaDB">
 </p>
 <p align="center"><em>Inspeccionar la base de datos de MariaDB</em></p>
 
 Si queremos acceder a la base de datos desde fuera del contenedor, es necesario mapear los puertos entre el anfitrión y el contenedor. Primero, eliminamos el contenedor anterior con ``docker rm -f some-mariadb``. Luego, creamos un nuevo contenedor, mapeando el puerto 3306 del anfitrión al puerto 3306 del contenedor y verificamos:
 
-<img src="./images/Mapeo_puertos_MariaDB.png" alt="Mapeo de puertos de MariaDB">
+<p align="center">
+    <img src="./images/Mapeo_puertos_MariaDB.png" alt="Mapeo de puertos de MariaDB">
 </p>
 <p align="center"><em>Mapeo de puertos de MariaDB</em></p>
 
