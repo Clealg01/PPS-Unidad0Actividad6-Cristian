@@ -6,34 +6,96 @@ Un registro de imágenes en Docker es un componente esencial para almacenar y ge
 
 Docker Hub, ofrecido como un servicio oficial por Docker, es el registro público más utilizado y accesible. Sin embargo, Docker también permite instalar registros privados de manera gratuita en cualquier servidor, utilizando su proyecto open source.
 
-## Contenido
+# Ejercicios
 
 - [Imagenes Docker](#imagenes-docker)
-  - [Contenido](#contenido)
-  - [Registros de imágenes: Docker Hub](#registros-de-imágenes-docker-hub)
-  - [Gestión de imágenes](#gestión-de-imágenes)
+- [Ejercicios](#ejercicios)
+  - [Ejercicio 1: Servidor web](#ejercicio-1-servidor-web)
+  - [Ejercicio 2: Servidor de base de datos](#ejercicio-2-servidor-de-base-de-datos)
   - [¿Cómo se organizan las imágenes?](#cómo-se-organizan-las-imágenes)
   - [Creación de contenedores desde imágenes](#creación-de-contenedores-desde-imágenes)
   - [Ejemplo: Desplegando la aplicación mediawiki](#ejemplo-desplegando-la-aplicación-mediawiki)
-  - [Ejercicios](#ejercicios)
+  - [Ejercicios](#ejercicios-1)
 
 
-## Registros de imágenes: Docker Hub
-Estructura de una imagen en Docker Hub
-Las imágenes en Docker Hub o cualquier registro siguen una nomenclatura específica que facilita su identificación y gestión. Esta estructura consta de tres partes principales:
+## Ejercicio 1: Servidor web
+El objetivo es crear un contenedor llamado web utilizando la imagen ``php:7.4-apache``, accesible desde el puerto ``8000``. Añadiremos los archivos ``index.html`` e ``index.php`` al directorio raíz del servicio web (``/var/www/html``).
 
-usuario/nombre:etiqueta
+1. **Crear el contenedor**
 
-usuario: Representa el nombre del usuario o la organización que ha creado la imagen. Si subimos imágenes a Docker Hub, este usuario debe coincidir con la cuenta registrada. Las imágenes oficiales en Docker Hub no incluyen un prefijo de usuario.
-nombre: Es un nombre significativo que identifica la imagen. Este debe ser descriptivo para que otros usuarios puedan entender fácilmente su propósito.
-etiqueta: Permite versionar las imágenes, ofreciendo control sobre las distintas versiones que se generan a lo largo del tiempo. Si no se especifica una etiqueta, Docker usa por defecto latest, lo que suele asociarse a la versión más reciente o estable de la imagen.
-Ejemplo de nomenclatura
-Un ejemplo típico de nombre de imagen es:
+Usamos el siguiente comando para crear y arrancar el contenedor:
+
+   ```bash
+    docker run -d --name web -p 8000:80 php:7.4-apache
+   ```
+
+sdfag
+
+2. **Crear el archivo ``index.html``**
+
+Añadimos un archivo ``index.html`` con el contenido ``<h1>HOLA SOY CRISTIAN</h1>``. Puedes hacerlo de una de las tres maneras descritas:
+- **Opción 1: Accediendo al contenedor**
+Entramos al contenedor de manera interactiva:
+
+   ```bash
+    docker exec -it web bash
+   ```
+Una vez dentro, creamos el archivo:
+
+   ```bash
+    echo "<h1>HOLA SOY [Tu Nombre]</h1>" > /var/www/html/index.html
+   ```
+
+- **Opción 2: Usando ``docker exec``**
+Ejecutamos directamente el comando sin acceder al contenedor:
+
+   ```bash
+    docker exec web bash -c 'echo "<h1>HOLA SOY CRISTIAN</h1>" > /var/www/html/index.html'
+   ```
+
+- **Opción 3: Usando ``docker cp``**
+Creamos el archivo en nuestra máquina local:
+
+   ```bash
+    echo "<h1>HOLA SOY CRISTIAN</h1>" > index.html
+   ```
+Luego copiamos el archivo al contenedor:
+
+   ```bash
+    docker cp index.html web:/var/www/html/
+   ```
+
+3. **Crear el archivo`` index.php``**
+
+Repetimos el procedimiento para crear el archivo ``index.php`` con el contenido ``<?php echo phpinfo(); ?>``
+
+- **Opción 1: Dentro del contenedor**
+   ```bash
+    echo "<?php echo phpinfo(); ?>" > /var/www/html/index.php
+   ```
+
+- **Opción 2: Usando ``docker exec``**
+
+   ```bash
+    docker exec web bash -c 'echo "<?php echo phpinfo(); ?>" > /var/www/html/index.php'
+   ```
+
+- **Opción 3: Usando ``docker cp``**
+
+   ```bash
+    echo "<?php echo phpinfo(); ?>" > index.php
+    docker cp index.php web:/var/www/html/
+   ```
+
+4. **Verificar el contenido desde el navegador**
+
+Accede a los archivos desde el navegador:
+
+- ``http://localhost:8000/index.html`` para el archivo HTML.
+- ``http://localhost:8000/index.php`` para el archivo PHP.
 
 
-
-
-## Gestión de imágenes
+## Ejercicio 2: Servidor de base de datos
 En Docker, las imágenes son un componente fundamental para crear y ejecutar contenedores. Antes de iniciar un contenedor, es necesario disponer de la imagen correspondiente en el registro local. Si al ejecutar el comando docker run la imagen no está disponible, Docker procederá automáticamente a descargarla desde un registro como Docker Hub. La gestión de imágenes permite realizar operaciones clave como listar, descargar, eliminar, buscar o inspeccionar imágenes, facilitando así el control sobre los recursos disponibles y utilizados en nuestro entorno Docker.
 
 Los principales comandos serían:
