@@ -26,7 +26,6 @@ Usamos el siguiente comando para crear y arrancar el contenedor:
    docker run -d --name web -p 8000:80 php:7.4-apache
    ```
 
-sdfag
 
 2. **Crear el archivo ``index.html``**
 
@@ -89,7 +88,7 @@ Repetimos el procedimiento para crear el archivo ``index.php`` con el contenido 
     </p>
 <p align="center"><em>Crear los archivo index.html e index.php mediante la segunda opción</em></p>
 
-1. **Verificar el contenido desde el navegador**
+4. **Verificar el contenido desde el navegador**
 
 Accede a los archivos desde el navegador:
 
