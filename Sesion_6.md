@@ -1,14 +1,14 @@
-# Escenarios multicontenedor
+# Creación de imágenes en docker
 En esta sesión, trabajaremos en la creación y gestión de imágenes **Docker**, un proceso fundamental para personalizar y desplegar aplicaciones o servicios de manera eficiente y reproducible. A través de dos enfoques, aprenderemos a generar imágenes tanto desde contenedores existentes como utilizando un **Dockerfile**.
 
 Existen dos formas principales de crear imágenes **Docker**: a partir de un contenedor en ejecución y mediante un **Dockerfile**. La primera opción es más directa y manual, ya que parte de un contenedor existente donde se realizan configuraciones o instalaciones, y posteriormente se guarda el estado final como una nueva imagen usando ``docker commit``. Aunque es sencilla, esta metodología puede ser menos eficiente y reproducible, ya que depende de pasos manuales. Por otro lado, crear imágenes mediante un Dockerfile permite automatizar y documentar todo el proceso de construcción de la imagen. Con un archivo declarativo, se definen las instrucciones paso a paso, lo que facilita la consistencia, el mantenimiento y la replicación del proceso en cualquier entorno. En resumen, mientras que ``docker commit`` es útil para tareas rápidas o experimentales, el Dockerfile es la opción recomendada para producción por su flexibilidad y reproducibilidad.
 
 ---
 
-# Ejercicios Despligues multicontenedor
+# Ejercicios sobre creación de imágenes
 
-- [Escenarios multicontenedor](#escenarios-multicontenedor)
-- [Ejercicios Despligues multicontenedor](#ejercicios-despligues-multicontenedor)
+- [Creación de imágenes en docker](#creación-de-imágenes-en-docker)
+- [Ejercicios sobre creación de imágenes](#ejercicios-sobre-creación-de-imágenes)
   - [Ejercicio 1: Creación de una imagen a partir de un contenedor](#ejercicio-1-creación-de-una-imagen-a-partir-de-un-contenedor)
   - [Ejercicio 2: Creación de una imagen a partir de un Dockerfile](#ejercicio-2-creación-de-una-imagen-a-partir-de-un-dockerfile)
 
